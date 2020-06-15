@@ -3,7 +3,7 @@ import { HasEmail } from "./1-basics";
 //== TOP TYPES ==//
 
 /**
- * (1) "Top types" are types that can hold any value. Typescript has two of them
+ * 1: "Top types" are types that can hold any value. Typescript has two of them
  */
 
 let myAny: any = 32;
@@ -15,7 +15,7 @@ myAny.foo.bar.baz;
 myUnknown.foo;
 
 /**
- * (2) When to use `any`
+ * 2: When to use `any`
  * Anys are good for areas of our programs where we want maximum flexibility
  * Example: sometimes a Promise<any> is fine when we don't care at all about the resolved value
  */
@@ -25,7 +25,7 @@ async function logWhenResolved(p: Promise<any>) {
 }
 
 /**
- * (3) When to use `unknown`
+ * 3: When to use `unknown`
  * Unknowns are good for "private" values that we don't want to expose through a public API.
  * They can still hold any value, we just must narrow the type before we're able to use it.
  *
@@ -35,7 +35,7 @@ async function logWhenResolved(p: Promise<any>) {
 myUnknown.split(", "); // 🚨 ERROR
 
 /**
- * (4) Built-in type guards
+ * 4: Built-in type guards
  */
 if (typeof myUnknown === "string") {
   // in here, myUnknown is of type string
@@ -47,7 +47,7 @@ if (myUnknown instanceof Promise) {
 }
 
 /**
- * (5) User-defined type guards
+ * 5: User-defined type guards
  * We can also create our own type guards, using functions that return booleans
  */
 
@@ -67,7 +67,7 @@ function isDefined<T>(arg: T | undefined): arg is T {
 }
 
 /**
- * (6) Dealing with multiple unknowns
+ * 6: Dealing with multiple unknowns
  * -   We kind of lose some of the benefits of structural typing when using `unknown`.
  * -   Look how we can get mixed up below
  */
@@ -77,7 +77,7 @@ let bb: unknown = ["a", "string", "array"];
 bb = aa; // 🚨 yikes
 
 /**
- * (7) Alternative to unknowns - branded types
+ * 7: Alternative to unknowns - branded types
  * -   One thing we can do to avoid this is to create types with structures that
  * -   are difficult to accidentally match. This involves unsafe casting, but it's ok
  * -   if we do things carefully
@@ -120,7 +120,7 @@ let revealedB = unbrandB(secretB);
 //== BOTTOM TYPE: never ==//
 
 /**
- * (8) Bottom types can hold no values. TypeScript has one of these: `never`
+ * 8: Bottom types can hold no values. TypeScript has one of these: `never`
  */
 let n: never = 4;
 
@@ -142,7 +142,7 @@ if (typeof x === "string") {
 }
 
 /**
- * (9) We can use this to our advantage to create exhaustive conditionals and switches
+ * 9: We can use this to our advantage to create exhaustive conditionals and switches
  */
 
 class UnreachableError extends Error {

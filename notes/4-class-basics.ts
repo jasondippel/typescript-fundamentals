@@ -3,7 +3,7 @@ import { HasPhoneNumber, HasEmail } from "./1-basics";
 // == CLASSES == //
 
 /**
- * (1) Classes work similarly to what you're used to seeing in JS
+ * 1: Classes work similarly to what you're used to seeing in JS
  * -   They can "implement" interfaces
  */
 
@@ -17,12 +17,12 @@ export class Contact implements HasEmail {
 }
 
 /**
- * (2) This looks a little verbose -- we have to specify the words "name" and "email" 3x.
+ * 2: This looks a little verbose -- we have to specify the words "name" and "email" 3x.
  * -   Typescript has a shortcut: PARAMETER PROPERTIES
  */
 
 /**
- * (3) Access modifier keywords - "who can access this thing"
+ * 3: Access modifier keywords - "who can access this thing"
  *
  * - public - everyone
  * - protected - me and subclasses
@@ -37,7 +37,7 @@ class ParamPropContact implements HasEmail {
 const x = new ParamPropContact("a", "b");
 
 /**
- * (4) Class fields can have initializers (defaults)
+ * 4: Class fields can have initializers (defaults)
  */
 class OtherContact implements HasEmail, HasPhoneNumber {
   protected age = 0;
@@ -59,7 +59,7 @@ class OtherContact implements HasEmail, HasPhoneNumber {
 }
 
 /**
- * (5) TypeScript even allows for abstract classes, which have a partial implementation
+ * 5: TypeScript even allows for abstract classes, which have a partial implementation
  */
 
 abstract class AbstractContact implements HasEmail, HasPhoneNumber {
@@ -74,7 +74,7 @@ abstract class AbstractContact implements HasEmail, HasPhoneNumber {
 }
 
 /**
- * (6) implementors must "fill in" any abstract methods or properties
+ * 6: implementors must "fill in" any abstract methods or properties
  */
 class ConcreteContact extends AbstractContact {
   constructor(

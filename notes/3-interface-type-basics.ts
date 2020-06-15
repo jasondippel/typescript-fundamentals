@@ -2,7 +2,7 @@ import { HasPhoneNumber, HasEmail } from "./1-basics";
 
 //== TYPE ALIAS ==//
 /**
- * (1) Type aliases allow us to give a type a name
+ * 1: Type aliases allow us to give a type a name
  */
 type StringOrNumber = string | number;
 
@@ -17,7 +17,7 @@ const x: NumVal = [1, 2, 3, 1, 1, [3, 1, 1, 2]];
 
 // == INTERFACE == //
 /**
- * (2) Interfaces can extend from other interfaces
+ * 2: Interfaces can extend from other interfaces
  */
 
 export interface HasInternationalPhoneNumber extends HasPhoneNumber {
@@ -25,7 +25,7 @@ export interface HasInternationalPhoneNumber extends HasPhoneNumber {
 }
 
 /**
- * (3) they can also be used to describe call signatures
+ * 3: they can also be used to describe call signatures
  */
 
 interface ContactMessenger1 {
@@ -43,7 +43,7 @@ const emailer: ContactMessenger1 = (_contact, _message) => {
 };
 
 /**
- * (4) construct signatures can be described as well
+ * 4: construct signatures can be described as well
  */
 
 interface ContactConstructor {
@@ -51,7 +51,7 @@ interface ContactConstructor {
 }
 
 /**
- * (5) index signatures describe how a type will respond to property access
+ * 5: index signatures describe how a type will respond to property access
  */
 
 /**
@@ -86,7 +86,7 @@ const phoneDict: PhoneNumberDict = {
 // at most, a type may have one string and one number index signature
 
 /**
- * (6) they may be used in combination with other types
+ * 6: they may be used in combination with other types
  */
 
 // augment the existing PhoneNumberDict
@@ -94,7 +94,7 @@ const phoneDict: PhoneNumberDict = {
 interface PhoneNumberDict {
   home: {
     /**
-     * (7) interfaces are "open", meaning any declarations of the
+     * 7: interfaces are "open", meaning any declarations of the
      * -   same name are merged
      */
     areaCode: number;
@@ -113,14 +113,14 @@ phoneDict.mobile; // MAYBE present
 // == TYPE ALIASES vs INTERFACES == //
 
 /**
- * (7) Type aliases are initialized synchronously, so self-referential stuff is 👎
+ * 7: Type aliases are initialized synchronously, so self-referential stuff is 👎
  */
 
 type NumberVal = 1 | 2 | 3 | NumberArr;
 type NumberArr = NumberVal[];
 
 /**
- * (8) Interfaces are initialized lazily, so combining it
+ * 8: Interfaces are initialized lazily, so combining it
  * -   w/ a type alias allows for recursive types!
  */
 

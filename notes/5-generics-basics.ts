@@ -1,7 +1,7 @@
 import { HasEmail } from "./1-basics";
 
 /**
- * (1) Generics allow us to parameterize types in the same way that
+ * 1: Generics allow us to parameterize types in the same way that
  * -   functions parameterize values
  */
 
@@ -26,7 +26,7 @@ val.value;
  */
 
 /**
- * (2) Type parameters can have default types
+ * 2: Type parameters can have default types
  * -   just like function parameters can have default values
  */
 
@@ -48,7 +48,7 @@ truthyFilter(""); // false
 truthyFilter(["abc"]); // true
 
 /**
- * (3) You don't have to use exactly your type parameter as an arg
+ * 3: You don't have to use exactly your type parameter as an arg
  * -   things that are based on your type parameter are fine too
  */
 
@@ -69,7 +69,7 @@ function resolveOrTimeout<T>(promise: Promise<T>, timeout: number): Promise<T> {
 resolveOrTimeout(fetch(""), 3000);
 
 /**
- * (4) Type parameters can have constraints
+ * 4: Type parameters can have constraints
  */
 
 function arrayToDict<T extends { id: string }>(array: T[]): { [k: string]: T } {
@@ -87,7 +87,7 @@ const myDict = arrayToDict([
 // myDict.foo.
 
 /**
- * (5) Type parameters are associated with scopes, just like function arguments
+ * 5: Type parameters are associated with scopes, just like function arguments
  */
 
 function startTuple<T>(a: T) {
@@ -98,7 +98,7 @@ function startTuple<T>(a: T) {
 const myTuple = startTuple(["first"])(42);
 
 /**
- * (6) When to use generics
+ * 6: When to use generics
  *
  * - Generics are necessary when we want to describe a relationship between
  * - two or more types (i.e., a function argument and return type).
